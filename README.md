@@ -2,6 +2,8 @@
   <img src="./docs/assets/artemis-banner.png?v=7" alt="ARTEMIS Banner" width="100%" />
 </p>
 
+<p align="center"><a href="./README_VI.md"><strong>🇻🇳 Đọc tài liệu tiếng Việt</strong></a> · <a href="https://xulytiengviet.github.io/Dashboardphone/">Trang giới thiệu tiếng Việt</a></p>
+
 <p align="center">
   <strong>Let AI assistants and test suites use real phones like a human.</strong>
 </p>
