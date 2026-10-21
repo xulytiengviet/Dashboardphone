@@ -32,7 +32,7 @@
     <!-- Task entry section -->
     <section class="hero-section">
       <h1 class="hero-title">
-        What would you like to do on your phone?
+        Bạn muốn điện thoại thực hiện điều gì?
       </h1>
     </section>
 
@@ -50,7 +50,7 @@
           } @else {
             <span class="material-symbols-outlined tab-icon">tune</span>
           }
-          <span class="tab-label">System Setup & Prerequisites</span>
+          <span class="tab-label">Thiết lập hệ thống & điều kiện cần</span>
         </button>
 
         <button
@@ -64,7 +64,7 @@
           } @else {
             <span class="material-symbols-outlined tab-icon">rocket_launch</span>
           }
-          <span class="tab-label">Launch Autonomous Task</span>
+          <span class="tab-label">Khởi chạy tác vụ tự động</span>
         </button>
       </div>
     </div>
@@ -90,9 +90,9 @@
     </div>
     <div class="step-info">
       <div class="step-title-row">
-        <h3 class="step-title">System & Environment</h3>
+        <h3 class="step-title">Hệ thống và môi trường</h3>
       </div>
-      <p class="step-desc">Core tools, Android debug bridge, and video recording runtime</p>
+      <p class="step-desc">Công cụ nền tảng, ADB và bộ ghi hình</p>
     </div>
 
     <button
@@ -100,10 +100,10 @@
       class="btn-header-action"
       [disabled]="isRefreshingDiagnostics()"
       (click)="refreshReadiness()"
-      title="Re-check all system dependencies"
+      title="Kiểm tra lại tất cả thành phần hệ thống"
     >
       <span class="material-symbols-outlined" [class.spinning]="isRefreshingDiagnostics()">refresh</span>
-      <span>{{ isRefreshingDiagnostics() ? 'Checking...' : 'Re-check' }}</span>
+      <span>{{ isRefreshingDiagnostics() ? 'Đang kiểm tra...' : 'Kiểm tra lại' }}</span>
     </button>
   </div>
 
@@ -117,7 +117,7 @@
         </div>
         <div class="install-bar-text">
           <div class="install-bar-title-row">
-            <div class="install-bar-title">Automated Dependency Setup</div>
+            <div class="install-bar-title">Tự động thiết lập các thành phần phụ thuộc</div>
             <div class="os-selector-pills">
               <button type="button" class="os-pill" [class.active]="effectiveOs() === 'linux'"
                 (click)="setSelectedOs('linux')">Linux</button>
@@ -127,7 +127,7 @@
                 (click)="setSelectedOs('windows')">Windows</button>
             </div>
           </div>
-          <div class="install-bar-desc">Run in terminal to install ADB, FFmpeg, scrcpy, and project dependencies:</div>
+          <div class="install-bar-desc">Chạy trong terminal để cài ADB, FFmpeg, scrcpy và các gói của dự án:</div>
         </div>
       </div>
       <div class="code-box small-box">
@@ -153,7 +153,7 @@
             <span class="material-symbols-outlined item-icon">terminal</span>
           </div>
           <div class="item-title-group">
-            <div class="item-name">Python Runtime</div>
+            <div class="item-name">Môi trường Python</div>
             <div class="item-subtitle">{{ pythonProbe()?.summary || 'Checking…' }}</div>
           </div>
           <div class="item-status">
@@ -186,7 +186,7 @@
             <span class="material-symbols-outlined item-icon">construction</span>
           </div>
           <div class="item-title-group">
-            <div class="item-name">Android Platform-Tools</div>
+            <div class="item-name">Công cụ nền tảng Android</div>
             <div class="item-subtitle">{{ !adbProbe() ? 'Checking…' : (adbProbe()?.metadata?.['installed'] ? 'ADB Installed' : 'ADB Missing') }}</div>
           </div>
           <div class="item-status">
@@ -219,7 +219,7 @@
             <span class="material-symbols-outlined item-icon">tune</span>
           </div>
           <div class="item-title-group">
-            <div class="item-name">System Configuration</div>
+            <div class="item-name">Cấu hình hệ thống</div>
             <div class="item-subtitle">{{ configProbe()?.summary || 'Config Valid' }}</div>
           </div>
           <div class="item-status">
@@ -252,7 +252,7 @@
             <span class="material-symbols-outlined item-icon">videocam</span>
           </div>
           <div class="item-title-group">
-            <div class="item-name">Video Toolchain</div>
+            <div class="item-name">Bộ công cụ video</div>
             <div class="item-subtitle">{{ toolchainProbe()?.summary || 'FFmpeg & scrcpy' }}</div>
           </div>
           <div class="item-status">
@@ -296,9 +296,9 @@
     </div>
     <div class="step-info">
       <div class="step-title-row">
-        <h3 class="step-title">AI Model Setup</h3>
+        <h3 class="step-title">Thiết lập mô hình AI</h3>
       </div>
-      <p class="step-desc">Google Gemini or custom LLM providers (OpenAI, Claude, Ollama)</p>
+      <p class="step-desc">Google Gemini hoặc nhà cung cấp LLM tùy chỉnh (OpenAI, Claude, Ollama)</p>
     </div>
   </div>
 
@@ -328,9 +328,9 @@
           <div class="choice-text">
             <div class="choice-title-row">
               <span class="choice-title">Google Gemini</span>
-              <span class="tag-badge tag-rec">Recommended</span>
+              <span class="tag-badge tag-rec">Khuyến nghị</span>
             </div>
-            <p class="choice-desc">Fast multimodal reasoning with free API key from Google AI Studio.</p>
+            <p class="choice-desc">Suy luận đa phương thức nhanh với khóa API miễn phí từ Google AI Studio.</p>
           </div>
         </div>
       </div>
@@ -346,9 +346,9 @@
           </div>
           <div class="choice-text">
             <div class="choice-title-row">
-              <span class="choice-title">Custom Configuration</span>
+              <span class="choice-title">Cấu hình tùy chỉnh</span>
             </div>
-            <p class="choice-desc">Define models in <code>config/artemis.jsonc</code> & keys in <code>.env</code>
+            <p class="choice-desc">Khai báo mô hình tại <code>config/artemis.jsonc</code> và khóa API tại <code>.env</code>
               (OpenAI, Claude, Ollama).</p>
           </div>
         </div>
@@ -362,12 +362,12 @@
       <div class="input-box-header">
         <div class="header-label">
           <span class="material-symbols-outlined label-icon">vpn_key</span>
-          <span>Enter Gemini API Key:</span>
+          <span>Nhập khóa API Gemini:</span>
         </div>
         <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"
           class="btn-header-link">
           <span class="material-symbols-outlined">open_in_new</span>
-          <span>Get Free API Key (Google AI Studio)</span>
+          <span>Lấy khóa API miễn phí (Google AI Studio)</span>
         </a>
       </div>
 
@@ -418,7 +418,7 @@
           <span>Testing...</span>
           } @else {
           <span class="material-symbols-outlined">network_check</span>
-          <span>Test Key</span>
+          <span>Kiểm tra khóa</span>
           }
         </button>
       </div>
@@ -443,7 +443,7 @@
         <div class="toggle-bar-left">
           <span class="material-symbols-outlined icon-ocr">document_scanner</span>
           <div class="toggle-bar-titles">
-            <span class="ocr-main-title">Optional: Google Cloud Vision OCR</span>
+            <span class="ocr-main-title">Tùy chọn: Nhận dạng chữ Google Cloud Vision</span>
           </div>
         </div>
 
@@ -468,7 +468,7 @@
           <div class="input-box-header">
             <div class="header-label">
               <span class="material-symbols-outlined label-icon">key</span>
-              <span>Cloud Vision API Key:</span>
+              <span>Khóa API Cloud Vision:</span>
             </div>
           </div>
 
@@ -518,7 +518,7 @@
               <span>Testing...</span>
               } @else {
               <span class="material-symbols-outlined">network_check</span>
-              <span>Test Key</span>
+              <span>Kiểm tra khóa</span>
               }
             </button>
           </div>
@@ -549,8 +549,8 @@
           <div class="inspector-header-left">
             <span class="material-symbols-outlined header-icon">tune</span>
             <div class="inspector-header-titles">
-              <span class="inspector-title">Active Model Configuration</span>
-              <span class="inspector-subtitle">Defined in
+              <span class="inspector-title">Cấu hình mô hình hiện dùng</span>
+              <span class="inspector-subtitle">Được khai báo trong
                 <code>{{ modelConfigEnv()?.config_path || 'config/artemis.jsonc' }}</code></span>
             </div>
           </div>
@@ -561,7 +561,7 @@
               <span class="material-symbols-outlined" [class.text-emerald]="copiedId() === 'config_path_btn'">
                 {{ copiedId() === 'config_path_btn' ? 'check' : 'content_copy' }}
               </span>
-              <span>Copy Path</span>
+              <span>Sao chép đường dẫn</span>
               </button>
               <button type="button" class="btn-file-action btn-toggle-code" (click)="toggleFullConfigFile()">
                 <span class="material-symbols-outlined">
@@ -575,7 +575,7 @@
           <!-- Model Summary Row -->
           <div class="inspector-summary-row">
             <div class="summary-metric">
-              <span class="metric-label">Default Model</span>
+              <span class="metric-label">Mô hình mặc định</span>
               <div class="metric-val-pill">
                 <span class="provider-dot"></span>
                 <span class="provider-name">{{ modelConfigEnv()?.default_model?.provider || 'google' }}</span>
@@ -586,7 +586,7 @@
           
             @if (modelConfigEnv()?.default_model?.fallback) {
             <div class="summary-metric">
-              <span class="metric-label">Fallback Model</span>
+              <span class="metric-label">Mô hình dự phòng</span>
               <div class="metric-val-pill secondary">
                 <span>{{ modelConfigEnv()?.default_model?.fallback?.provider }}/{{
                   modelConfigEnv()?.default_model?.fallback?.model }}</span>
@@ -610,8 +610,8 @@
           <div class="inspector-header-left">
             <span class="material-symbols-outlined header-icon">vpn_key</span>
             <div class="inspector-header-titles">
-              <span class="inspector-title">Environment Variables & API Keys</span>
-              <span class="inspector-subtitle">Loaded from <code>{{ modelConfigEnv()?.env_path || '.env' }}</code></span>
+              <span class="inspector-title">Biến môi trường và khóa API</span>
+              <span class="inspector-subtitle">Đã tải từ <code>{{ modelConfigEnv()?.env_path || '.env' }}</code></span>
             </div>
           </div>
       
@@ -620,7 +620,7 @@
           <span class="material-symbols-outlined" [class.text-emerald]="copiedId() === 'env_path_btn'">
             {{ copiedId() === 'env_path_btn' ? 'check' : 'content_copy' }}
           </span>
-          <span>Copy Path</span>
+          <span>Sao chép đường dẫn</span>
           </button>
         </div>
         
@@ -635,7 +635,7 @@
               @if (envItem.is_set) {
               <span class="badge-env-pass">
                 <span class="material-symbols-outlined">check_circle</span>
-                <span>Configured</span>
+                <span>Đã cấu hình</span>
                 @if (envItem.preview) {
                 <code class="key-preview">({{ envItem.preview }})</code>
                 }
@@ -643,7 +643,7 @@
               } @else {
               <span class="badge-env-unset">
                 <span class="material-symbols-outlined">radio_button_unchecked</span>
-                <span>Not Set</span>
+                <span>Chưa thiết lập</span>
               </span>
               }
             </div>
@@ -672,9 +672,9 @@
             </div>
             <div class="step-info">
               <div class="step-title-row">
-                <h3 class="step-title">Android Device & Emulator Connection</h3>
+                <h3 class="step-title">Kết nối thiết bị Android và máy ảo</h3>
               </div>
-              <p class="step-desc">Local emulator, attached phone, wireless device, or another ADB server</p>
+              <p class="step-desc">Máy ảo tại máy, điện thoại cắm cáp, kết nối không dây hoặc máy chủ ADB khác</p>
             </div>
 
             <button
@@ -745,14 +745,14 @@
                   </div>
                   <div class="device-hero-status">
                     <span class="status-dot dot-pass"></span>
-                    <span class="status-text">Connected</span>
+                    <span class="status-text">Đã kết nối</span>
                   </div>
                 </div>
 
                 <!-- Multi-Device Switcher if multiple devices detected -->
                 @if (connectedDevices().length > 1) {
                   <div class="multi-device-switcher">
-                    <span class="switcher-label">Select Active Device:</span>
+                    <span class="switcher-label">Chọn thiết bị đang sử dụng:</span>
                     <div class="switcher-chips">
                       @for (dev of connectedDevices(); track dev.serial) {
                         <button
@@ -766,7 +766,7 @@
                           </span>
                           <span>{{ dev.model || dev.serial }}</span>
                           @if (dev.serial === activeDevice()?.serial) {
-                            <span class="active-check">✓ Active</span>
+                            <span class="active-check">✓ Đang sử dụng</span>
                           }
                         </button>
                       }
@@ -788,7 +788,7 @@
                       <div class="tracker-titles">
                         <div class="tracker-main-heading">
                           <h4 class="tracker-title">
-                            Launching Android Emulator: <span class="avd-highlight">{{ emulatorLaunchState()?.avd_name || activeDevice()?.serial || 'Virtual Device' }}</span>
+                            Đang khởi chạy máy ảo Android: <span class="avd-highlight">{{ emulatorLaunchState()?.avd_name || activeDevice()?.serial || 'Virtual Device' }}</span>
                           </h4>
                           <span class="stage-tag-badge">{{ emulatorLaunchState()?.status === 'booting' ? 'OS Booting' : 'Starting' }}</span>
                         </div>
@@ -817,7 +817,7 @@
                           <span class="spinner-tiny"></span>
                         }
                       </div>
-                      <span class="step-label">1. Process Start</span>
+                      <span class="step-label">1. Bắt đầu tiến trình</span>
                     </div>
 
                     <div class="step-line" [class.done]="emulatorLaunchState()?.progress_percent! >= 35"></div>
@@ -832,7 +832,7 @@
                           <span>2</span>
                         }
                       </div>
-                      <span class="step-label">2. ADB Handshake</span>
+                      <span class="step-label">2. Bắt tay ADB</span>
                     </div>
 
                     <div class="step-line" [class.done]="emulatorLaunchState()?.progress_percent! >= 65"></div>
@@ -847,7 +847,7 @@
                           <span>3</span>
                         }
                       </div>
-                      <span class="step-label">3. Android OS Boot</span>
+                      <span class="step-label">3. Khởi động Android</span>
                     </div>
 
                     <div class="step-line" [class.done]="emulatorLaunchState()?.status === 'ready'"></div>
@@ -856,7 +856,7 @@
                       <div class="step-circle">
                         <span class="material-symbols-outlined check-icon">check_circle</span>
                       </div>
-                      <span class="step-label">4. Ready</span>
+                      <span class="step-label">4. Sẵn sàng</span>
                     </div>
                   </div>
 
@@ -886,14 +886,14 @@
                       <div class="logs-header">
                         <div class="logs-header-left">
                           <span class="material-symbols-outlined">terminal</span>
-                          <span>Emulator Console Stream (stdout / stderr)</span>
+                          <span>Nhật ký máy ảo (stdout / stderr)</span>
                         </div>
                         <button type="button" class="btn-copy-logs" (click)="copyToClipboard(emulatorLaunchState()?.logs?.join('\n') || '', 'boot_logs')">
                           <span class="material-symbols-outlined">{{ copiedId() === 'boot_logs' ? 'check' : 'content_copy' }}</span>
                           <span>{{ copiedId() === 'boot_logs' ? 'Copied' : 'Copy Logs' }}</span>
                         </button>
                       </div>
-                      <pre class="logs-body">@if (emulatorLaunchState()?.logs?.length) {@for (log of emulatorLaunchState()?.logs; track log) {<div class="log-line">{{ log }}</div>}} @else {<div class="log-empty">Waiting for process output...</div>}</pre>
+                      <pre class="logs-body">@if (emulatorLaunchState()?.logs?.length) {@for (log of emulatorLaunchState()?.logs; track log) {<div class="log-line">{{ log }}</div>}} @else {<div class="log-empty">Đang đợi dữ liệu đầu ra từ tiến trình...</div>}</pre>
                     </div>
                   }
                 </div>
@@ -910,7 +910,7 @@
                         <span class="material-symbols-outlined failed-icon">error</span>
                       </div>
                       <div class="failed-titles">
-                        <h4 class="failed-title">Emulator Launch Failed</h4>
+                        <h4 class="failed-title">Không thể khởi chạy máy ảo</h4>
                         <p class="failed-desc">{{ emulatorLaunchState()?.error || 'The Android emulator process failed to start or crashed during initialization.' }}</p>
                       </div>
                     </div>
@@ -922,7 +922,7 @@
                   @if (emulatorLaunchState()?.logs?.length) {
                     <div class="failed-logs-box">
                       <div class="logs-header">
-                        <span>Process Output / Failure Logs:</span>
+                        <span>Dữ liệu tiến trình / Nhật ký lỗi:</span>
                         <button type="button" class="btn-copy-logs" (click)="copyToClipboard(emulatorLaunchState()?.logs?.join('\n') || '', 'fail_logs')">
                           <span class="material-symbols-outlined">{{ copiedId() === 'fail_logs' ? 'check' : 'content_copy' }}</span>
                           <span>{{ copiedId() === 'fail_logs' ? 'Copied' : 'Copy Logs' }}</span>
@@ -941,10 +941,10 @@
                     }
                     <button type="button" class="btn-restart-adb-sub" (click)="restartAdbServer()">
                       <span class="material-symbols-outlined">sync</span>
-                      <span>Restart ADB Server</span>
+                      <span>Khởi động lại máy chủ ADB</span>
                     </button>
                     <button type="button" class="btn-dismiss-flat" (click)="dismissEmulatorStatus()">
-                      <span>Dismiss</span>
+                      <span>Đóng</span>
                     </button>
                   </div>
                 </div>
@@ -968,7 +968,7 @@
                       </div>
                       <div class="method-info">
                         <div class="method-title-row">
-                          <span class="method-title">Android Emulator</span>
+                          <span class="method-title">Máy ảo Android</span>
                         </div>
                         <span class="method-desc">
                           @if (installedAvds().length > 0) {
@@ -996,9 +996,9 @@
                       </div>
                       <div class="method-info">
                         <div class="method-title-row">
-                          <span class="method-title">USB Cable</span>
+                          <span class="method-title">Cáp USB</span>
                         </div>
-                        <span class="method-desc">Connect physical phone via USB</span>
+                        <span class="method-desc">Kết nối điện thoại bằng USB</span>
                       </div>
                       </div>
                       <div class="method-card-right">
@@ -1018,9 +1018,9 @@
                       </div>
                       <div class="method-info">
                         <div class="method-title-row">
-                          <span class="method-title">Wireless ADB</span>
+                          <span class="method-title">ADB không dây</span>
                         </div>
-                        <span class="method-desc">Connect over local Wi-Fi</span>
+                        <span class="method-desc">Kết nối qua Wi-Fi nội bộ</span>
                       </div>
                       </div>
                       <div class="method-card-right">
@@ -1040,9 +1040,9 @@
                       </div>
                       <div class="method-info">
                         <div class="method-title-row">
-                          <span class="method-title">Remote Computer</span>
+                          <span class="method-title">Máy tính từ xa</span>
                         </div>
-                        <span class="method-desc">Phone connected to another computer</span>
+                        <span class="method-desc">Điện thoại kết nối qua máy tính khác</span>
                       </div>
                     </div>
                     <div class="method-card-right">
@@ -1056,7 +1056,7 @@
                     <div class="active-remote-copy">
                       <span class="material-symbols-outlined">hub</span>
                       <span>
-                        Artemis is currently using
+                        ARTEMIS hiện đang sử dụng
                         <strong>{{ adbServerStatus()?.endpoint?.host }}:{{ adbServerStatus()?.endpoint?.port }}</strong>.
                         Switch to local ADB before using a local emulator, USB cable, or Wireless ADB.
                       </span>
@@ -1082,7 +1082,7 @@
                         <div class="section-header-bar">
                           <div class="section-title-group">
                             <span class="material-symbols-outlined header-icon">devices</span>
-                            <span class="section-title">Installed Virtual Devices (AVD)</span>
+                            <span class="section-title">Các thiết bị ảo đã cài (AVD)</span>
                             <span class="count-badge">{{ installedAvds().length }} Available</span>
                           </div>
                         </div>
@@ -1116,7 +1116,7 @@
                                     <span>{{ emulatorLaunchState()?.status === 'booting' ? 'Booting OS' : 'Starting' }} ({{ emulatorLaunchState()?.elapsed_seconds || 0 }}s)</span>
                                   } @else {
                                     <span class="material-symbols-outlined action-icon">play_arrow</span>
-                                    <span>Launch</span>
+                                    <span>Khởi chạy</span>
                                   }
                                 </button>
                               </div>
@@ -1133,7 +1133,7 @@
                             </div>
                             <div class="banner-titles">
                               <div class="banner-title-row">
-                                <h4 class="empty-title">No Android Virtual Devices (AVD) Detected</h4>
+                                <h4 class="empty-title">Không tìm thấy thiết bị Android ảo (AVD)</h4>
                                 <div class="os-selector-pills">
                                   <button type="button" class="os-pill" [class.active]="effectiveOs() === 'linux'"
                                     (click)="setSelectedOs('linux')">Linux</button>
@@ -1143,7 +1143,7 @@
                                     (click)="setSelectedOs('windows')">Windows</button>
                                 </div>
                               </div>
-                              <p class="empty-desc">Follow the step-by-step instructions below to install and start an emulator:</p>
+                              <p class="empty-desc">Làm theo hướng dẫn bên dưới để cài đặt và chạy máy ảo:</p>
                             </div>
                           </div>
 
@@ -1155,7 +1155,7 @@
                               (click)="setEmulatorSetupMode('studio')"
                             >
                               <span class="material-symbols-outlined pill-icon">desktop_windows</span>
-                              <span>Android Studio (GUI)</span>
+                              <span>Android Studio (giao diện đồ họa)</span>
                             </button>
                             <button
                               type="button"
@@ -1164,7 +1164,7 @@
                               (click)="setEmulatorSetupMode('cli')"
                             >
                               <span class="material-symbols-outlined pill-icon">terminal</span>
-                              <span>Command Line (CLI)</span>
+                              <span>Dòng lệnh (CLI)</span>
                             </button>
                           </div>
                         </div>
@@ -1177,9 +1177,9 @@
                                 <span class="step-number-badge">1</span>
                                 <span class="material-symbols-outlined step-card-icon">download</span>
                               </div>
-                              <div class="step-card-title">Install Android Studio</div>
+                              <div class="step-card-title">Cài đặt Android Studio</div>
                               <div class="step-card-desc">
-                                Download for {{ effectiveOs() === 'darwin' ? 'macOS' : (effectiveOs() === 'windows' ? 'Windows' : 'Linux') }} from <a href="https://developer.android.com/studio" target="_blank" rel="noopener" class="guide-link">developer.android.com/studio</a> and install.
+                                Download for {{ effectiveOs() === 'darwin' ? 'macOS' : (effectiveOs() === 'windows' ? 'Windows' : 'Linux') }} from <a href="https://developer.android.com/studio" target="_blank" rel="noopener" class="guide-link">developer.android.com/studio</a> và tiến hành cài đặt.
                               </div>
                             </div>
 
@@ -1188,9 +1188,9 @@
                                 <span class="step-number-badge">2</span>
                                 <span class="material-symbols-outlined step-card-icon">developer_mode</span>
                               </div>
-                              <div class="step-card-title">Open Device Manager</div>
+                              <div class="step-card-title">Mở Trình quản lý thiết bị</div>
                               <div class="step-card-desc">
-                                On Studio welcome screen, open <strong>More Actions &gt; Virtual Device Manager</strong> (or <strong>Tools &gt; Device Manager</strong>).
+                                Tại màn hình chào mừng của Android Studio, mở <strong>Thao tác khác &gt; Trình quản lý thiết bị ảo</strong> (or <strong>Công cụ &gt; Trình quản lý thiết bị</strong>).
                               </div>
                             </div>
 
@@ -1199,9 +1199,9 @@
                                 <span class="step-number-badge">3</span>
                                 <span class="material-symbols-outlined step-card-icon">add_circle</span>
                               </div>
-                              <div class="step-card-title">Create Virtual Device</div>
+                              <div class="step-card-title">Tạo thiết bị ảo</div>
                               <div class="step-card-desc">
-                                Click <strong>Create Device</strong>, choose <strong>Pixel 8</strong>, select <strong>Android 14 (API 34)</strong>, and click <strong>Finish</strong>.
+                                Nhấn <strong>Tạo thiết bị</strong>, chọn <strong>Pixel 8</strong>, chọn <strong>Android 14 (API 34)</strong>, sau đó nhấn <strong>Hoàn tất</strong>.
                               </div>
                             </div>
 
@@ -1210,9 +1210,9 @@
                                 <span class="step-number-badge">4</span>
                                 <span class="material-symbols-outlined step-card-icon">play_arrow</span>
                               </div>
-                              <div class="step-card-title">Launch Emulator</div>
+                              <div class="step-card-title">Khởi chạy máy ảo</div>
                               <div class="step-card-desc">
-                                Click ▶ <strong>Play</strong> in Device Manager. Artemis will detect and connect to it automatically!
+                                Nhấn ▶ <strong>Play</strong> trong Trình quản lý thiết bị. ARTEMIS sẽ tự nhận diện và kết nối!
                               </div>
                             </div>
                           </div>
@@ -1241,8 +1241,8 @@
                             <div class="cli-step-item">
                               <div class="step-badge-num">2</div>
                               <div class="step-content">
-                                <div class="step-title">Download Emulator & System Image (API 34)</div>
-                                <p class="step-text">Install Android 14 Google APIs system image using SDK Manager:</p>
+                                <div class="step-title">Tải máy ảo và ảnh hệ thống (API 34)</div>
+                                <p class="step-text">Cài ảnh hệ thống Android 14 Google APIs bằng SDK Manager:</p>
                                 <div class="code-box small-box">
                                   <span class="terminal-prefix">{{ effectiveOs() === 'windows' ? 'PS>' : '$' }}</span>
                                   <code class="code-text">{{ emuSdkInstallCmd() }}</code>
@@ -1258,8 +1258,8 @@
                             <div class="cli-step-item">
                               <div class="step-badge-num">3</div>
                               <div class="step-content">
-                                <div class="step-title">Create Virtual Device (Pixel 8 AVD)</div>
-                                <p class="step-text">Initialize a new Android Virtual Device named <code>Pixel_8_API_34</code>:</p>
+                                <div class="step-title">Tạo thiết bị ảo (Pixel 8 AVD)</div>
+                                <p class="step-text">Khởi tạo thiết bị Android ảo tên <code>Pixel_8_API_34</code>:</p>
                                 <div class="code-box small-box">
                                   <span class="terminal-prefix">{{ effectiveOs() === 'windows' ? 'PS>' : '$' }}</span>
                                   <code class="code-text">{{ emuCreateAvdCmd() }}</code>
@@ -1275,8 +1275,8 @@
                             <div class="cli-step-item">
                               <div class="step-badge-num">4</div>
                               <div class="step-content">
-                                <div class="step-title">Start the Emulator</div>
-                                <p class="step-text">Launch the virtual device (or add <code>-no-window</code> for headless execution):</p>
+                                <div class="step-title">Chạy máy ảo</div>
+                                <p class="step-text">Khởi chạy thiết bị ảo (hoặc thêm <code>-no-window</code> để chạy không có giao diện):</p>
                                 <div class="code-box small-box">
                                   <span class="terminal-prefix">{{ effectiveOs() === 'windows' ? 'PS>' : '$' }}</span>
                                   <code class="code-text">emulator -avd Pixel_8_API_34 -no-boot-anim</code>
@@ -1301,7 +1301,7 @@
                   <div class="method-details-panel">
                     <div class="usb-guide-intro">
                       <span class="material-symbols-outlined intro-icon">cable</span>
-                      <span>Connect your Android phone via USB cable and enable USB Debugging:</span>
+                      <span>Kết nối Android qua cáp USB và bật Gỡ lỗi USB:</span>
                     </div>
 
                     <div class="steps-flow-grid">
@@ -1310,8 +1310,8 @@
                           <span class="step-number-badge">1</span>
                           <span class="material-symbols-outlined step-card-icon">usb</span>
                         </div>
-                        <div class="step-card-title">Connect USB Cable</div>
-                        <div class="step-card-desc">Plug your Android phone into this computer with a data cable.</div>
+                        <div class="step-card-title">Cắm cáp USB</div>
+                        <div class="step-card-desc">Dùng cáp dữ liệu kết nối điện thoại Android với máy tính.</div>
                       </div>
 
                       <div class="flow-step-card">
@@ -1319,8 +1319,8 @@
                           <span class="step-number-badge">2</span>
                           <span class="material-symbols-outlined step-card-icon">touch_app</span>
                         </div>
-                        <div class="step-card-title">Enable Developer Options</div>
-                        <div class="step-card-desc">In phone <strong>Settings > About Phone</strong>, tap <strong>Build Number</strong> 7
+                        <div class="step-card-title">Bật Tùy chọn nhà phát triển</div>
+                        <div class="step-card-desc">Trên điện thoại <strong>Settings > Giới thiệu điện thoại</strong>, chạm <strong>Số bản dựng</strong> 7
                           times.</div>
                       </div>
 
@@ -1329,8 +1329,8 @@
                           <span class="step-number-badge">3</span>
                           <span class="material-symbols-outlined step-card-icon">toggle_on</span>
                         </div>
-                        <div class="step-card-title">Enable USB Debugging</div>
-                        <div class="step-card-desc">In <strong>Settings > Developer Options</strong>, turn <strong>USB Debugging</strong> ON.
+                        <div class="step-card-title">Bật Gỡ lỗi USB</div>
+                        <div class="step-card-desc">In <strong>Settings > Tùy chọn nhà phát triển</strong>, bật <strong>Gỡ lỗi USB</strong> ON.
                         </div>
                       </div>
 
@@ -1339,8 +1339,8 @@
                           <span class="step-number-badge">4</span>
                           <span class="material-symbols-outlined step-card-icon">verified_user</span>
                         </div>
-                        <div class="step-card-title">Authorize Computer</div>
-                        <div class="step-card-desc">Check <strong>"Always allow"</strong> and tap <strong>Allow</strong> on the phone prompt.
+                        <div class="step-card-title">Cấp quyền cho máy tính</div>
+                        <div class="step-card-desc">Đánh dấu <strong>"Luôn cho phép"</strong> và chạm <strong>Cho phép</strong> trên thông báo của điện thoại.
                         </div>
                       </div>
                     </div>
@@ -1352,14 +1352,14 @@
                   <div class="method-details-panel">
                     <div class="wifi-guide-intro">
                       <span class="material-symbols-outlined intro-icon">wifi</span>
-                      <span>Connect your phone and computer on the same Wi-Fi network:</span>
+                      <span>Kết nối điện thoại và máy tính vào cùng mạng Wi-Fi:</span>
                     </div>
                   
                     <!-- Interactive Wi-Fi Connection Generator Box -->
                     <div class="wifi-interactive-box">
                       <div class="wifi-form-row">
                         <div class="wifi-input-col ip-col">
-                          <label class="wifi-label">Device IP Address</label>
+                          <label class="wifi-label">Địa chỉ IP của thiết bị</label>
                           <div class="wifi-input-wrap">
                             <span class="material-symbols-outlined wrap-icon">router</span>
                             <input type="text" class="wifi-input" [ngModel]="wifiHost()" (ngModelChange)="wifiHost.set($event)"
@@ -1368,7 +1368,7 @@
                         </div>
                   
                         <div class="wifi-input-col port-col">
-                          <label class="wifi-label">Port</label>
+                          <label class="wifi-label">Cổng</label>
                           <div class="wifi-input-wrap">
                             <span class="material-symbols-outlined wrap-icon">tag</span>
                             <input type="text" class="wifi-input" [ngModel]="wifiPort()" (ngModelChange)="wifiPort.set($event)"
@@ -1384,7 +1384,7 @@
                             <span>Connecting...</span>
                             } @else {
                             <span class="material-symbols-outlined">bolt</span>
-                            <span>Connect</span>
+                            <span>Kết nối</span>
                             }
                           </button>
                         </div>
@@ -1406,7 +1406,7 @@
                   <div class="info-callout-box">
                     <span class="material-symbols-outlined callout-icon">help_outline</span>
                     <div class="callout-text">
-                      Find IP & port in phone <strong>Settings > Developer Options > Wireless Debugging</strong>.
+                      Tìm địa chỉ IP và cổng trên điện thoại <strong>Settings > Developer Options > Gỡ lỗi không dây</strong>.
                       </div>
                     </div>
                   </div>
@@ -1423,7 +1423,7 @@
                     <div class="remote-adb-interactive-box">
                       <div class="remote-adb-form-row">
                         <div class="remote-adb-input-col host-col">
-                          <label class="remote-adb-label" for="remote-adb-host">ADB Server Host</label>
+                          <label class="remote-adb-label" for="remote-adb-host">Máy chủ ADB</label>
                           <div class="remote-adb-input-wrap">
                             <span class="material-symbols-outlined wrap-icon">dns</span>
                             <input
@@ -1440,7 +1440,7 @@
                         </div>
 
                         <div class="remote-adb-input-col port-col">
-                          <label class="remote-adb-label" for="remote-adb-port">ADB Server Port</label>
+                          <label class="remote-adb-label" for="remote-adb-port">Cổng máy chủ ADB</label>
                           <div class="remote-adb-input-wrap">
                             <span class="material-symbols-outlined wrap-icon">tag</span>
                             <input
@@ -1469,7 +1469,7 @@
                               <span>Checking...</span>
                             } @else {
                               <span class="material-symbols-outlined">bolt</span>
-                              <span>Test Connection</span>
+                              <span>Kiểm tra kết nối</span>
                             }
                           </button>
                         </div>
@@ -1481,7 +1481,7 @@
                           [ngModel]="rememberRemoteAdb()"
                           (ngModelChange)="rememberRemoteAdb.set($event)"
                         />
-                        <span>Remember this endpoint for future Artemis launches</span>
+                        <span>Ghi nhớ điểm kết nối này cho những lần chạy ARTEMIS sau</span>
                       </label>
 
                       @if (remoteAdbMessage()) {
@@ -1556,14 +1556,14 @@
                   </div>
                   <button type="button" class="btn-check-unlock" [disabled]="isRefreshingDiagnostics()" (click)="refreshReadiness()">
                     <span class="material-symbols-outlined" [class.spinning]="isRefreshingDiagnostics()">refresh</span>
-                    <span>{{ isRefreshingDiagnostics() ? 'Checking...' : 'Check Again' }}</span>
+                    <span>{{ isRefreshingDiagnostics() ? 'Đang kiểm tra...' : 'Check Again' }}</span>
                   </button>
                 </div>
 
                 <!-- Multi-Device Switcher if multiple devices detected -->
                 @if (connectedDevices().length > 1) {
                   <div class="multi-device-switcher" style="margin-top: 12px;">
-                    <span class="switcher-label">Select Active Device:</span>
+                    <span class="switcher-label">Chọn thiết bị đang sử dụng:</span>
                     <div class="switcher-chips">
                       @for (dev of connectedDevices(); track dev.serial) {
                         <button
@@ -1577,7 +1577,7 @@
                           </span>
                           <span>{{ dev.model || dev.serial }}</span>
                           @if (dev.serial === activeDevice()?.serial) {
-                            <span class="active-check">✓ Active</span>
+                            <span class="active-check">✓ Đang sử dụng</span>
                           }
                         </button>
                       }
@@ -1593,9 +1593,9 @@
                 <div class="unauthorized-card">
                   <span class="material-symbols-outlined alert-icon">screen_lock_portrait</span>
                   <div class="unauth-details">
-                    <div class="unauth-title">USB Debugging Authorization Pending</div>
+                    <div class="unauth-title">Đang chờ cấp quyền Gỡ lỗi USB</div>
                     <div class="unauth-desc">
-                      Your Android device was detected, but it requires authorization. Please unlock your phone screen and tap <strong>"Allow USB Debugging"</strong>.
+                      Đã phát hiện thiết bị Android nhưng cần cấp quyền. Hãy mở khóa màn hình và nhấn <strong>"Cho phép gỡ lỗi USB"</strong>.
                     </div>
                   </div>
                   <button type="button" class="btn-retry-auth" (click)="restartAdbServer()">
@@ -1612,7 +1612,7 @@
                 <div class="error-msg-box">
                   <span class="material-symbols-outlined err-icon">error</span>
                   <div>
-                    <strong>Android Platform Tools (adb) not found.</strong> Please install ADB on your operating system:
+                    <strong>Không tìm thấy công cụ Android (adb).</strong> Hãy cài ADB trên hệ điều hành:
                   </div>
                 </div>
 
@@ -1621,7 +1621,7 @@
                     <div class="install-os">
                       <span>Linux (Ubuntu / Debian)</span>
                       @if (effectiveOs() === 'linux') {
-                      <span class="detected-badge">Detected</span>
+                      <span class="detected-badge">Đã phát hiện</span>
                       }
                     </div>
                     <div class="code-box small-box">
@@ -1639,7 +1639,7 @@
                     <div class="install-os">
                       <span>macOS (Homebrew)</span>
                       @if (effectiveOs() === 'darwin') {
-                      <span class="detected-badge">Detected</span>
+                      <span class="detected-badge">Đã phát hiện</span>
                       }
                     </div>
                     <div class="code-box small-box">
@@ -1657,7 +1657,7 @@
                     <div class="install-os">
                       <span>Windows (WinGet)</span>
                       @if (effectiveOs() === 'windows') {
-                      <span class="detected-badge">Detected</span>
+                      <span class="detected-badge">Đã phát hiện</span>
                       }
                     </div>
                     <div class="code-box small-box">
@@ -1685,12 +1685,12 @@
                 <span class="material-symbols-outlined step-check-icon">check</span>
               </div>
               <div class="ready-text-group">
-                <h4 class="ready-title">System Ready for Autonomous Tasks</h4>
-                <p class="ready-desc">All dependencies, AI model credentials, and Android device are verified and ready to run.</p>
+                <h4 class="ready-title">Hệ thống đã sẵn sàng chạy tác vụ tự động</h4>
+                <p class="ready-desc">Các công cụ, thông tin truy cập mô hình AI và thiết bị Android đều đã được kiểm tra.</p>
               </div>
             </div>
             <button type="button" class="btn-proceed-launch" (click)="setTab('launcher')">
-              <span>Launch Autonomous Task</span>
+              <span>Khởi chạy tác vụ tự động</span>
               <span class="material-symbols-outlined rocket-icon">rocket_launch</span>
             </button>
           </div>
@@ -1727,11 +1727,11 @@
               <div class="suggestion-left">
                 <span class="material-symbols-outlined sparkle-icon">auto_awesome</span>
                 <span class="suggestion-text">
-                  Continuous monitoring or complex task detected. Recommended: <strong>Pro Mode</strong>
+                  Phát hiện tác vụ phức tạp hoặc theo dõi liên tục. Khuyến nghị: <strong>Chế độ Pro</strong>
                 </span>
               </div>
               <button type="button" class="btn-switch-pro" (click)="setProfile('pro')">
-                <span>Switch to Pro</span>
+                <span>Chuyển sang Pro</span>
                 <span class="material-symbols-outlined btn-arrow">arrow_forward</span>
               </button>
             </div>
@@ -1761,14 +1761,14 @@
                 <p class="desc-line">
                   <span class="mode-name">Flash</span>
                   <span class="bullet">·</span>
-                  <span>Token-efficient, rapid <strong>3–5s/step</strong> decisions straight from the live screen. Best for everyday tasks with a clear path, however long they run.</span>
-                  <span class="limitation-tag">(No plan, no result check, no ADB commands)</span>
+                  <span>Nhanh, tiết kiệm token <strong>3–5s/step</strong> đưa ra quyết định trực tiếp từ màn hình. Phù hợp tác vụ thông dụng với luồng rõ ràng.</span>
+                  <span class="limitation-tag">(Không lập kế hoạch, không kiểm tra kết quả và không chạy lệnh ADB)</span>
                 </p>
               } @else {
                 <p class="desc-line">
                   <span class="mode-name">Pro</span>
                   <span class="bullet">·</span>
-                  <span>Plans first, checks its results and recovers when a tap is blocked. Handles <strong>100+ step</strong> workflows and live phone monitoring (<strong>15–40s</strong> / step).</span>
+                  <span>Lập kế hoạch trước, kiểm tra kết quả và phục hồi khi thao tác bị chặn. Hỗ trợ <strong>trên 100 bước</strong> trong quy trình và giám sát điện thoại trực tiếp (<strong>15–40s</strong> / bước).</span>
                 </p>
               }
             </div>
@@ -1827,7 +1827,7 @@
                 @if (isSubmitting()) {
                   <span class="spinner"></span><span>Starting...</span>
                 } @else {
-                  <span class="material-symbols-outlined run-icon">play_arrow</span><span>Run Task</span>
+                  <span class="material-symbols-outlined run-icon">play_arrow</span><span>Chạy tác vụ</span>
                 }
               </button>
             </div>
@@ -1838,8 +1838,8 @@
         @if (selectedProfile() === 'pro') {
           <div class="pro-outputter-standalone-card">
             <div class="outputter-card-header">
-              <span class="outputter-title">Expected Output</span>
-              <span class="outputter-optional-tag">(Optional)</span>
+              <span class="outputter-title">Kết quả mong đợi</span>
+              <span class="outputter-optional-tag">(Không bắt buộc)</span>
             </div>
 
             <div class="outputter-input-wrapper">
@@ -1867,9 +1867,9 @@
           <!-- Pro Mode Tuning Card: verification depth & explorer perception sliders -->
           <div class="pro-tuning-card" [class.tip-open]="activeTuningTip() !== null">
             <div class="tuning-card-header">
-              <span class="tuning-title">Pro settings</span>
+              <span class="tuning-title">Cài đặt Pro</span>
               @if (!isTuningDefault()) {
-                <button type="button" class="btn-tuning-reset" (click)="resetTuning()" title="Back to the defaults">Reset</button>
+                <button type="button" class="btn-tuning-reset" (click)="resetTuning()" title="Back to the defaults">Đặt lại</button>
               }
             </div>
 
@@ -1949,7 +1949,7 @@
                         </div>
                         <p class="tip-tagline">{{ slider.level.tagline }}</p>
                         <div class="tip-section">
-                          <span class="tip-section-title">What happens</span>
+                          <span class="tip-section-title">Điều gì sẽ xảy ra</span>
                           <ul>
                             @for (line of slider.level.runs; track $index) {
                               <li>{{ line }}</li>
@@ -1958,7 +1958,7 @@
                         </div>
                         @if (slider.level.skips?.length) {
                           <div class="tip-section skips">
-                            <span class="tip-section-title">Not included</span>
+                            <span class="tip-section-title">Không bao gồm</span>
                             <ul>
                               @for (line of slider.level.skips; track $index) {
                                 <li>{{ line }}</li>
@@ -1967,7 +1967,7 @@
                           </div>
                         }
                         <div class="tip-best">
-                          <span class="tip-section-title">Use it for</span>
+                          <span class="tip-section-title">Phù hợp cho</span>
                           <span>{{ slider.level.bestFor }}</span>
                         </div>
                       </div>
@@ -1986,7 +1986,7 @@
             <div class="header-left">
               <div class="section-label">
                 <span class="material-symbols-outlined section-icon">auto_awesome</span>
-                <span class="label-text">Recommended Tasks</span>
+                <span class="label-text">Tác vụ gợi ý</span>
               </div>
 
               <!-- Filter Tabs -->
@@ -1997,7 +1997,7 @@
                   [class.active]="selectedCategory() === 'all'"
                   (click)="setCategory('all')"
                 >
-                  <span>All</span>
+                  <span>Tất cả</span>
                 </button>
 
                 <button
@@ -2027,7 +2027,7 @@
                   (click)="setCategory('cross_app')"
                 >
                   <span class="material-symbols-outlined tab-mini-icon">sync_alt</span>
-                  <span>Multi-App</span>
+                  <span>Đa ứng dụng</span>
                 </button>
 
                 <button
@@ -2037,7 +2037,7 @@
                   (click)="setCategory('monitor')"
                 >
                   <span class="material-symbols-outlined tab-mini-icon">monitoring</span>
-                  <span>Monitor</span>
+                  <span>Theo dõi</span>
                 </button>
               </div>
             </div>
@@ -2045,7 +2045,7 @@
             <div class="header-right">
               <button type="button" class="btn-shuffle-suggestions" (click)="shuffleSuggestions()" title="Discover more tasks">
                 <span class="material-symbols-outlined shuffle-icon">shuffle</span>
-                <span>Shuffle</span>
+                <span>Ngẫu nhiên</span>
               </button>
             </div>
           </div>
@@ -2086,7 +2086,7 @@
                 <div class="card-footer-row">
                   <span class="tag-pill">{{ item.tag }}</span>
                   <div class="use-prompt-action">
-                    <span>Use</span>
+                    <span>Sử dụng</span>
                     <span class="material-symbols-outlined action-arrow">arrow_forward</span>
                   </div>
                 </div>
