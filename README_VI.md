@@ -121,6 +121,17 @@ Dashboardphone/
 └── start.sh                   # Khởi động macOS/Linux
 ```
 
+## Xuất bản trang giới thiệu bằng GitHub Pages
+
+Kho đã có `index.html` tại thư mục gốc và workflow `.github/workflows/pages.yml` để đóng gói, xuất bản trang HTML tĩnh. **Cần bật GitHub Pages một lần trong cấu hình kho**, nếu chưa bật:
+
+1. Mở **Settings → Pages** của kho `xulytiengviet/Dashboardphone`.
+2. Ở **Build and deployment → Source**, chọn **GitHub Actions**.
+3. Mở **Actions → Đăng trang ARTEMIS tiếng Việt**, chọn **Run workflow** để xuất bản lại.
+4. Sau khi workflow hoàn thành thành công, kiểm tra trang tại https://xulytiengviet.github.io/Dashboardphone/.
+
+Nếu Pages chưa bật, bước **Cấu hình GitHub Pages** sẽ báo `Get Pages site failed: Not Found`. Đây là lỗi cài đặt Pages, không phải lỗi HTML của bản giao diện. GitHub App không thể tự bật Pages khi thiếu quyền quản trị đặc biệt. Xem [GitHub Pages settings](https://github.com/xulytiengviet/Dashboardphone/settings/pages).
+
 ## 10. Nguồn, ghi nhận tác giả và giấy phép
 
 - Mã nguồn upstream: **[google/artemis](https://github.com/google/artemis)**.
