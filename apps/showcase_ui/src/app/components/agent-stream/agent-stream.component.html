@@ -24,11 +24,11 @@ limitations under the License.
         class="vscode-tab-btn"
         [class.active]="isTaskDropdownOpen()"
         (click)="toggleTaskDropdown($event)"
-        title="Task Queue"
-        aria-label="Task Queue"
+        title="Hàng đợi tác vụ"
+        aria-label="Hàng đợi tác vụ"
         >
         <span class="material-symbols-outlined tab-icon">list_alt</span>
-        <span class="tab-label">Task Queue</span>
+        <span class="tab-label">Hàng đợi tác vụ</span>
       </button>
       <button
         #notesOrigin="cdkOverlayOrigin"
@@ -36,11 +36,11 @@ limitations under the License.
         class="vscode-tab-btn"
         [class.active]="isNotesDropdownOpen()"
         (click)="toggleNotesDropdown($event)"
-        title="Notes & Plans"
-        aria-label="Notes & Plans"
+        title="Ghi chú và kế hoạch"
+        aria-label="Ghi chú và kế hoạch"
         >
         <span class="material-symbols-outlined tab-icon">description</span>
-        <span class="tab-label">Notes & Plans</span>
+        <span class="tab-label">Ghi chú và kế hoạch</span>
       </button>
     </div>
 
@@ -57,7 +57,7 @@ limitations under the License.
       <div class="vscode-dropdown-menu task-dropdown">
         <div class="popover-title-header">
           <span class="material-symbols-outlined">list_alt</span>
-          <span>Task Queue</span>
+          <span>Hàng đợi tác vụ</span>
         </div>
         <div class="dropdown-section-label">
           <span class="material-symbols-outlined icon-bolt">bolt</span>
@@ -65,7 +65,7 @@ limitations under the License.
         </div>
         @if (activeQueue().length === 0) {
           <div class="dropdown-empty-state">
-            No active or queued tasks
+            Không có tác vụ đang chạy hoặc đang đợi
           </div>
         }
         @for (session of activeQueue(); track trackSession($index, session)) {
@@ -132,7 +132,7 @@ limitations under the License.
         </div>
         @if (historyTasks().length === 0) {
           <div class="dropdown-empty-state">
-            No past task history
+            Chưa có lịch sử tác vụ
           </div>
         }
         <div class="dropdown-history-list">
@@ -200,7 +200,7 @@ limitations under the License.
       <div class="vscode-dropdown-menu notes-dropdown">
         <div class="popover-title-header">
           <span class="material-symbols-outlined">description</span>
-          <span>Notes & Plans</span>
+          <span>Ghi chú và kế hoạch</span>
         </div>
         <!-- Notes Selector / Pills (Shown if there are note files) -->
         @if (noteKeys().length > 1) {
@@ -222,7 +222,7 @@ limitations under the License.
         @if (noteKeys().length === 0) {
           <div class="dropdown-empty-state">
             <span class="material-symbols-outlined empty-icon">description</span>
-            <span>No notes available for this session.</span>
+            <span>Không có ghi chú nào trong phiên này.</span>
           </div>
         }
         <!-- Rich Notes Content Viewer -->
@@ -402,7 +402,7 @@ limitations under the License.
           (click)="toggleRunInfo($event)"
           >
           <span class="material-symbols-outlined model-icon">{{ getModelIcon(model.name) }}</span>
-          <span class="model-label">Architecture:</span>
+          <span class="model-label">Kiến trúc:</span>
           <span class="model-name">{{ getModelDisplayName(model.name) }}</span>
         </button>
 
@@ -425,12 +425,12 @@ limitations under the License.
             </div>
 
             <div class="run-info-row">
-              <span class="run-info-label">Elapsed</span>
+              <span class="run-info-label">Thời gian</span>
               <span class="run-info-value">{{ runInfoElapsed() }}</span>
             </div>
 
             <div class="run-info-row">
-              <span class="run-info-label">Tokens</span>
+              <span class="run-info-label">Token</span>
               @if (runUsage(); as usage) {
                 <span class="run-info-value">
                   {{ formatRunTokens(usage.total_tokens) }}
@@ -443,7 +443,7 @@ limitations under the License.
 
             <div class="run-info-row is-stacked">
               <div class="run-info-line">
-                <span class="run-info-label">Context</span>
+                <span class="run-info-label">Ngữ cảnh</span>
                 @if (runInfoContextPercent() !== null) {
                   <span class="run-info-value">
                     {{ runInfoContextPercent() }}%
@@ -464,15 +464,15 @@ limitations under the License.
 
             @if (runInfoIsPro()) {
               <div class="run-info-row">
-                <span class="run-info-label">Result check</span>
+                <span class="run-info-label">Kiểm tra kết quả</span>
                 <span class="run-info-value">{{ runTuningLabel('verify', runInfoTuning()?.verification_level) }}</span>
               </div>
               <div class="run-info-row">
-                <span class="run-info-label">Screen reading</span>
+                <span class="run-info-label">Đọc màn hình</span>
                 <span class="run-info-value">{{ runTuningLabel('explore', runInfoTuning()?.explorer_mode) }}</span>
               </div>
             } @else {
-              <div class="run-info-note">No extra settings for Flash.</div>
+              <div class="run-info-note">Chế độ Flash không cần thiết lập bổ sung.</div>
             }
           </div>
         </ng-template>
@@ -520,22 +520,22 @@ limitations under the License.
           </span>
         }
         @if (agentService.isCurrentSessionRunning()) {
-          <span class="btn-text">Recording...</span>
+          <span class="btn-text">Đang ghi hình...</span>
         }
         @if (!agentService.isCurrentSessionRunning() && agentService.currentSessionRecordingStatus() === 'processing') {
-          <span class="btn-text">Preparing...</span>
+          <span class="btn-text">Đang chuẩn bị...</span>
         }
         @if (!agentService.isCurrentSessionRunning() && agentService.currentSessionRecordingStatus() !== 'processing' && agentService.currentSessionVideoUrl()) {
-          <span class="btn-text">Play Recording</span>
+          <span class="btn-text">Phát bản ghi</span>
         }
         @if (!agentService.isCurrentSessionRunning() && agentService.currentSessionRecordingStatus() !== 'processing' && !agentService.currentSessionVideoUrl() && agentService.hasCurrentSessionStepFrames()) {
-          <span class="btn-text">Step Replay</span>
+          <span class="btn-text">Phát lại theo bước</span>
         }
         @if (!agentService.isCurrentSessionRunning() && agentService.currentSessionRecordingStatus() !== 'processing' && !agentService.currentSessionVideoUrl() && !agentService.hasCurrentSessionStepFrames() && agentService.currentSessionRecordingStatus() === 'failed') {
-          <span class="btn-text">Recording Failed</span>
+          <span class="btn-text">Ghi hình thất bại</span>
         }
         @if (!agentService.isCurrentSessionRunning() && agentService.currentSessionRecordingStatus() !== 'processing' && !agentService.currentSessionVideoUrl() && !agentService.hasCurrentSessionStepFrames() && agentService.currentSessionRecordingStatus() !== 'failed') {
-          <span class="btn-text">Screen Recording</span>
+          <span class="btn-text">Ghi màn hình</span>
         }
         @if (agentService.isCurrentSessionRunning()) {
           <span class="video-pulse-dot red"></span>
@@ -554,15 +554,15 @@ limitations under the License.
     @if (agentService.isSessionContentLoading()) {
       <div class="session-loading-state" aria-live="polite">
         <span class="material-symbols-outlined spin-animation">progress_activity</span>
-        <span>Loading run history...</span>
+        <span>Đang tải lịch sử chạy...</span>
       </div>
     }
 
     @if (!agentService.isSessionContentLoading() && consolidatedBlocks().length === 0 && !showPlanningLoader() && startupWorkItems().length === 0) {
       <div class="empty-state">
         <div class="empty-icon"><span class="material-symbols-outlined">sensors</span></div>
-        <h3>No Stream Activity Selected</h3>
-        <p>Please select a session from the Task List on the right to view its real-time log payloads.</p>
+        <h3>Chưa chọn phiên theo dõi</h3>
+        <p>Chọn phiên từ danh sách tác vụ bên phải để xem nhật ký theo thời gian thực.</p>
       </div>
     }
 
@@ -689,7 +689,7 @@ limitations under the License.
                                     [class.is-running]="isCheckerSegmentRunning(block, itemIdx)">
                                     <div class="report-header">
                                       <span class="stream-status-dot" [class.streaming]="isCheckerSegmentRunning(block, itemIdx)"></span>
-                                      <span class="header-label">Work</span>
+                                      <span class="header-label">Thực thi</span>
                                     </div>
                                     <div class="report-content stream-box">
                                       <div class="stream-text" [innerHTML]="renderMarkdown(item.data.text, block.id + '-seg-' + itemIdx)"></div>
@@ -718,7 +718,7 @@ limitations under the License.
                                     [class.collapsed]="collapsedStreams().has(block.data.execution_id || block.data.step_id || block.id)">
                                     <div class="details-summary" (click)="toggleCollapse(block.data.execution_id || block.data.step_id || block.id)">
                                       <span class="stream-status-dot" [class.streaming]="isBlockRunning(block)"></span>
-                                      <span class="header-label">Thought</span>
+                                      <span class="header-label">Suy luận</span>
                                     </div>
                                     @if (getStreamDisplayText(block.id + '-native', item.data.text)) {
                                       <div class="details-content-wrapper">
@@ -750,7 +750,7 @@ limitations under the License.
                                     [class.is-running]="isBlockRunning(block)">
                                     <div class="report-header">
                                       <span class="stream-status-dot" [class.streaming]="isBlockRunning(block)"></span>
-                                      <span class="header-label">Work</span>
+                                      <span class="header-label">Thực thi</span>
                                     </div>
                                     @if (getStreamDisplayText(block.id, item.data.text)) {
                                       <div class="report-content stream-box">
@@ -788,7 +788,7 @@ limitations under the License.
                                   @if (!isActionExpanded('action-' + block.id + '-' + itemIdx) && getReportStatusExplanation(item.data)) {
                                     <div class="action-card-body">
                                       <div class="action-detail-row">
-                                        <span class="detail-label">Summary:</span>
+                                        <span class="detail-label">Tóm tắt:</span>
                                         <span class="detail-value">"{{ getReportStatusExplanation(item.data) }}"</span>
                                       </div>
                                     </div>
@@ -799,7 +799,7 @@ limitations under the License.
                                       <div class="expanded-grid">
                                         @if (getReportStatusExplanation(item.data); as expText) {
                                           <div class="grid-item full-width">
-                                            <span class="grid-label">Report & Findings</span>
+                                            <span class="grid-label">Báo cáo và phát hiện</span>
                                             <span class="grid-value report-markdown-body" [innerHTML]="renderMarkdown(expText, 'report-' + block.id + '-' + itemIdx)"></span>
                                           </div>
                                         }
@@ -809,7 +809,7 @@ limitations under the License.
                                         <div class="expanded-screenshots-container">
                                           @if (getStepPreImageUrl(block.data, item.data)) {
                                             <div class="screenshot-column">
-                                              <span class="screenshot-label">Final Verified State</span>
+                                              <span class="screenshot-label">Trạng thái cuối đã xác minh</span>
                                               <div class="image-wrapper" (click)="openImageModal(getStepPreImageUrl(block.data, item.data)!, item.data, $event)">
                                                 <div class="img-relative-box">
                                                   <img [src]="getStepPreImageUrl(block.data, item.data)" alt="Final Screen Screenshot" />
@@ -819,7 +819,7 @@ limitations under the License.
                                           }
                                           @if (getStepPostImageUrl(block.data, item.data)) {
                                             <div class="screenshot-column">
-                                              <span class="screenshot-label">Post Verification</span>
+                                              <span class="screenshot-label">Xác minh sau thao tác</span>
                                               <div class="image-wrapper" (click)="openImageModal(getStepPostImageUrl(block.data, item.data)!, null, $event)">
                                                 <div class="img-relative-box">
                                                   <img [src]="getStepPostImageUrl(block.data, item.data)" alt="Post Screenshot" />
@@ -846,7 +846,7 @@ limitations under the License.
                                     @if (isActionFailed(item.data, block.data)) {
                                       <span class="action-status-badge is-failed">
                                         <span class="material-symbols-outlined status-icon">error</span>
-                                        Failed
+                                        Thất bại
                                       </span>
                                     }
                                     <span class="action-expand-icon material-symbols-outlined">
@@ -858,7 +858,7 @@ limitations under the License.
                                     <div class="action-card-body">
                                       @if (getActionTargetText(item.data)) {
                                         <div class="action-detail-row">
-                                          <span class="detail-label">Target:</span>
+                                          <span class="detail-label">Mục tiêu:</span>
                                           <span class="detail-value">"{{ getActionTargetText(item.data) }}"</span>
                                         </div>
                                       }
@@ -870,7 +870,7 @@ limitations under the License.
                                       }
                                       @if (getActionCoords(item.data)) {
                                         <div class="action-detail-row">
-                                          <span class="detail-label">Coordinates:</span>
+                                          <span class="detail-label">Tọa độ:</span>
                                           <span class="detail-value coordinate-badge">{{ getActionCoords(item.data) }}</span>
                                         </div>
                                       }
@@ -882,7 +882,7 @@ limitations under the License.
                                       <div class="expanded-grid">
                                         @if (getActionTargetText(item.data)) {
                                           <div class="grid-item">
-                                            <span class="grid-label">Target</span>
+                                            <span class="grid-label">Mục tiêu</span>
                                             <span class="grid-value">"{{ getActionTargetText(item.data) }}"</span>
                                           </div>
                                         }
@@ -894,19 +894,19 @@ limitations under the License.
                                         }
                                         @if (getActionCoords(item.data)) {
                                           <div class="grid-item">
-                                            <span class="grid-label">Coordinates</span>
+                                            <span class="grid-label">Tọa độ</span>
                                             <span class="grid-value code-pill">{{ getActionCoords(item.data) }}</span>
                                           </div>
                                         }
                                         @if (getActionBounds(item.data)) {
                                           <div class="grid-item">
-                                            <span class="grid-label">Target Bounds</span>
+                                            <span class="grid-label">Giới hạn mục tiêu</span>
                                             <span class="grid-value code-pill">[{{ getActionBounds(item.data) }}]</span>
                                           </div>
                                         }
                                         @if (getActionClass(item.data)) {
                                           <div class="grid-item">
-                                            <span class="grid-label">Target Class</span>
+                                            <span class="grid-label">Lớp đối tượng</span>
                                             <span class="grid-value code-pill">{{ getActionClass(item.data) }}</span>
                                           </div>
                                         }
@@ -919,7 +919,7 @@ limitations under the License.
                                         <!-- Fallback item if all detail fields are empty -->
                                         @if (!getActionTargetText(item.data) && !getActionInputText(item.data) && !getActionCoords(item.data) && !getActionBounds(item.data) && !getActionClass(item.data) && getActionExtraParams(item.data).length === 0) {
                                           <div class="grid-item">
-                                            <span class="grid-label">Action</span>
+                                            <span class="grid-label">Thao tác</span>
                                             <span class="grid-value">{{ getActionTitle(item.data) }}</span>
                                           </div>
                                         }
@@ -929,7 +929,7 @@ limitations under the License.
                                         <div class="expanded-screenshots-container">
                                           @if (getStepPreImageUrl(block.data, item.data)) {
                                             <div class="screenshot-column">
-                                              <span class="screenshot-label">Pre-Action (Before)</span>
+                                              <span class="screenshot-label">Trước khi thao tác</span>
                                               <div class="image-wrapper" (click)="openImageModal(getStepPreImageUrl(block.data, item.data)!, item.data, $event)">
                                                 <div class="img-relative-box">
                                                   <img #preImg [src]="getStepPreImageUrl(block.data, item.data)" (load)="onImageLoad(preImg, preOverlay, item.data)" alt="Pre-Action Screenshot" />
@@ -940,7 +940,7 @@ limitations under the License.
                                           }
                                           @if (getStepPostImageUrl(block.data, item.data)) {
                                             <div class="screenshot-column">
-                                              <span class="screenshot-label">Post-Action (After)</span>
+                                              <span class="screenshot-label">Sau khi thao tác</span>
                                               <div class="image-wrapper" (click)="openImageModal(getStepPostImageUrl(block.data, item.data)!, null, $event)">
                                                 <div class="img-relative-box">
                                                   <img [src]="getStepPostImageUrl(block.data, item.data)" alt="Post-Action Screenshot" />
@@ -1011,16 +1011,16 @@ limitations under the License.
                                       (click)="hasLLMFailureRetryEntries(item.data) && toggleActionExpanded('llm-failure-' + block.id + '-' + itemIdx, $event)">
                                       <div class="action-card-header llm-failure-header">
                                         <span class="material-symbols-outlined action-icon is-failed">error</span>
-                                        <span class="action-title">LLM Request Failed</span>
+                                        <span class="action-title">Yêu cầu LLM thất bại</span>
                                         @if (isTerminalLLMFailure(item.data)) {
                                           <span class="action-status-badge is-paused">
                                             <span class="material-symbols-outlined status-icon">pause_circle</span>
-                                            Paused
+                                            Tạm dừng
                                           </span>
                                         } @else {
                                           <span class="action-status-badge is-failed">
                                             <span class="material-symbols-outlined status-icon">warning</span>
-                                            Failed
+                                            Thất bại
                                           </span>
                                         }
                                         @if (hasLLMFailureRetryEntries(item.data)) {
@@ -1031,22 +1031,22 @@ limitations under the License.
                                       </div>
                                       <div class="action-card-body">
                                         <div class="action-detail-row">
-                                          <span class="detail-label">What happened:</span>
-                                          <span class="detail-value">The AI request could not be completed after automatic retries.</span>
+                                          <span class="detail-label">Sự cố:</span>
+                                          <span class="detail-value">Yêu cầu AI không thành công sau các lần thử lại tự động.</span>
                                         </div>
                                         <div class="action-detail-row">
-                                          <span class="detail-label">Failure reason:</span>
+                                          <span class="detail-label">Nguyên nhân:</span>
                                           <span class="detail-value">{{ getLLMErrorText(item.data) }}</span>
                                         </div>
                                         @if (getLLMFailureWaited(item.data); as waited) {
                                           <div class="action-detail-row">
-                                            <span class="detail-label">Waited:</span>
+                                            <span class="detail-label">Thời gian chờ:</span>
                                             <span class="detail-value">{{ waited }}</span>
                                           </div>
                                         }
                                         @if (isActionExpanded('llm-failure-' + block.id + '-' + itemIdx)) {
                                           <div class="failure-retry-details">
-                                            <div class="failure-retry-title">Retry details</div>
+                                            <div class="failure-retry-title">Chi tiết thử lại</div>
                                             @for (retry of getLLMFailureRetryEntries(item.data); track retry; let retryIndex = $index) {
                                               <div class="failure-retry-row">
                                                 <span>Retry {{ retryIndex + 1 }}</span>
@@ -1070,10 +1070,10 @@ limitations under the License.
                                           aria-label="Continue the paused task"
                                           >
                                           <span class="material-symbols-outlined continue-icon">play_arrow</span>
-                                          <span>Continue task</span>
+                                          <span>Tiếp tục tác vụ</span>
                                           <span class="material-symbols-outlined continue-arrow">arrow_forward</span>
                                         </button>
-                                        <span class="llm-resume-hint">Task paused · no steps are running</span>
+                                        <span class="llm-resume-hint">Tác vụ đã tạm dừng · không có bước nào đang chạy</span>
                                       </div>
                                     }
                                   </div>
@@ -1134,7 +1134,7 @@ limitations under the License.
                                       @if (isToolFailed(item.data)) {
                                         <span class="action-status-badge is-failed">
                                           <span class="material-symbols-outlined status-icon">error</span>
-                                          Failed
+                                          Thất bại
                                         </span>
                                       }
                                       <span class="action-expand-icon material-symbols-outlined">
@@ -1148,19 +1148,19 @@ limitations under the License.
                                         @if (isAdbCommandTool(item.data)) {
                                           @if (getAdbCommandLine(item.data)) {
                                             <div class="action-detail-row">
-                                              <span class="detail-label">Command:</span>
+                                              <span class="detail-label">Lệnh:</span>
                                               <span class="detail-value command-value"><code>{{ getAdbCommandLine(item.data) }}</code></span>
                                             </div>
                                           }
                                           @if (getAdbCwd(item.data)) {
                                             <div class="action-detail-row">
-                                              <span class="detail-label">Cwd:</span>
+                                              <span class="detail-label">Thư mục hiện tại:</span>
                                               <span class="detail-value">"{{ getAdbCwd(item.data) }}"</span>
                                             </div>
                                           }
                                           @if (getAdbTerminalId(item.data)) {
                                             <div class="action-detail-row">
-                                              <span class="detail-label">Terminal ID:</span>
+                                              <span class="detail-label">Mã terminal:</span>
                                               <span class="detail-value">"{{ getAdbTerminalId(item.data) }}"</span>
                                             </div>
                                           }
@@ -1169,7 +1169,7 @@ limitations under the License.
                                         @if (!isAdbCommandTool(item.data)) {
                                           @if (getToolTargetText(item.data)) {
                                             <div class="action-detail-row">
-                                              <span class="detail-label">Target:</span>
+                                              <span class="detail-label">Mục tiêu:</span>
                                               <span class="detail-value">"{{ getToolTargetText(item.data) }}"</span>
                                             </div>
                                           }
@@ -1181,7 +1181,7 @@ limitations under the License.
                                           }
                                           @if (getToolCoords(item.data)) {
                                             <div class="action-detail-row">
-                                              <span class="detail-label">Coordinates:</span>
+                                              <span class="detail-label">Tọa độ:</span>
                                               <span class="detail-value coordinate-badge">{{ getToolCoords(item.data) }}</span>
                                             </div>
                                           }
@@ -1227,7 +1227,7 @@ limitations under the License.
                                           @if (!isAdbCommandTool(item.data)) {
                                             @if (getToolTargetText(item.data)) {
                                               <div class="grid-item">
-                                                <span class="grid-label">Target</span>
+                                                <span class="grid-label">Mục tiêu</span>
                                                 <span class="grid-value">"{{ getToolTargetText(item.data) }}"</span>
                                               </div>
                                             }
@@ -1239,7 +1239,7 @@ limitations under the License.
                                             }
                                             @if (getToolCoords(item.data)) {
                                               <div class="grid-item">
-                                                <span class="grid-label">Coordinates</span>
+                                                <span class="grid-label">Tọa độ</span>
                                                 <span class="grid-value code-pill">{{ getToolCoords(item.data) }}</span>
                                               </div>
                                             }
@@ -1268,7 +1268,7 @@ limitations under the License.
                                           <div class="expanded-screenshots-container">
                                             @if (getStepPreImageUrl(block.data, item.data)) {
                                               <div class="screenshot-column">
-                                                <span class="screenshot-label">Pre-Action (Before)</span>
+                                                <span class="screenshot-label">Trước khi thao tác</span>
                                                 <div class="image-wrapper" (click)="openImageModal(getStepPreImageUrl(block.data, item.data)!, item.data, $event)">
                                                   <div class="img-relative-box">
                                                     <img #preImgTool [src]="getStepPreImageUrl(block.data, item.data)" (load)="onImageLoad(preImgTool, preOverlayTool, item.data)" alt="Pre-Action Screenshot" />
@@ -1279,7 +1279,7 @@ limitations under the License.
                                             }
                                             @if (getStepPostImageUrl(block.data, item.data)) {
                                               <div class="screenshot-column">
-                                                <span class="screenshot-label">Post-Action (After)</span>
+                                                <span class="screenshot-label">Sau khi thao tác</span>
                                                 <div class="image-wrapper" (click)="openImageModal(getStepPostImageUrl(block.data, item.data)!, null, $event)">
                                                   <div class="img-relative-box">
                                                     <img [src]="getStepPostImageUrl(block.data, item.data)" alt="Post-Action Screenshot" />
