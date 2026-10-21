@@ -1,0 +1,39 @@
+name: Đăng trang ARTEMIS tiếng Việt
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - README_VI.md
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Tải mã nguồn
+        uses: actions/checkout@v4
+      - name: Chuẩn bị trang tĩnh
+        run: |
+          mkdir -p _site
+          cp index.html _site/index.html
+          touch _site/.nojekyll
+      - name: Cấu hình GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Đóng gói trang
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Xuất bản
+        id: deployment
+        uses: actions/deploy-pages@v4
